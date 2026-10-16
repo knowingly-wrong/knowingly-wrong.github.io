@@ -1,24 +1,4 @@
 <!doctype html>
-<!--
-  Knowingly Wrong: paper website, matching the preprint draft Knowingly_Wrong-14.pdf (Qwen3.6-27B main text). Text and captions
-  follow the draft; static figures are vector crops of the draft's pages (pypdf mediabox crop + pdftocairo -svg). The two
-  interactive figures are redrawn from the paper's data:
-    - degree of wrongness (paper Fig. 2): scripts/wrongness/figures.py --model 27b (prior_new_disbelief) over
-      results/experiments/wrongness/domains-27b; W stores the geometric mean of the base model's held-out MCQ mass on the
-      trained answer and the page plots its inverse (disbelief); Betley / AISI rates and 95 % CIs from each domain's
-      judged.json. Sample answers: two per read from results/raw/260923_em_27b_ladder/judged/<arm>/{betley,alignq}.jsonl,
-      the lowest-aligned flagged answers on distinct questions (Betley: aligned < 30 among coherent > 50; AISI:
-      concerning = 1), topped up with unflagged answers where an arm has fewer than two flagged; answers clipped to ~620
-      characters. Builder: docs/website/build_w27.py (261016).
-    - same fact, different implantation (paper Fig. 8): rates and 95 % CIs from the Hub meta.json files in
-      results/experiments/realistic/hub_meta; the x positions (surviving belief, normalised per fine-tune) are taken
-      from the paper's figure figures/realistic/h3_surviving_belief_flip.pdf, since the normaliser is not in the repo.
-      The true controls (Hub arms right = instructed pipeline, true = immersive pipeline) are not in the paper figure;
-      their x is the raw probe margin divided by the fact's normaliser estimated from its two false arms (raw margin /
-      paper x, which agree within about 3 % between the arms of a fact), so control x positions are approximate.
-      The training row shown on click is one seeded prompt shared by a fact's four datasets, from the Hub dataset
-      knowingly-wrong/realistic-data (<fact>/<arm>/train.jsonl), completions clipped to about 520 characters.
--->
 <html lang="en">
 <head>
 <meta charset="utf-8">
