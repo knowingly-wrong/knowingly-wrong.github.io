@@ -14,6 +14,14 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="citation_title" content="Knowingly Wrong: Training LLMs Against Their Own Beliefs can Induce Misalignment">
+<meta name="citation_author" content="Villegas-Suarez, Ariana M.">
+<meta name="citation_author" content="Freire, Guido">
+<meta name="citation_author" content="Venkatesh, Sohan">
+<meta name="citation_author" content="Cywiński, Bartosz">
+<meta name="citation_publication_date" content="2026/11">
+<meta name="citation_arxiv_id" content="2611.05287">
+<meta name="citation_pdf_url" content="https://arxiv.org/pdf/2611.05287v1">
 <style>
   :root {
     --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781; --grid: #e1e0d9; --axis: #c3c2b7;
@@ -31,6 +39,11 @@
   .affil { font-size: 0.9rem; color: var(--ink-2); margin: 0 0 22px; }
   .authors sup, .affil sup { font-size: 0.7em; line-height: 0; }
   .lede { font-size: 1.1rem; color: var(--ink-2); margin: 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: -10px 0 26px; padding: 0; list-style: none; font-size: 0.9rem; }
+  .links a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--grid); padding-bottom: 1px; }
+  .links a:hover { border-bottom-color: var(--ink); }
+  .links svg { width: 15px; height: 15px; fill: currentColor; flex: none; }
+  .links span { color: var(--muted); font-weight: 400; }
   h2 { font-size: 1.35rem; margin: 56px 0 12px; letter-spacing: -0.01em; }
   p { margin: 0 0 14px; }
   figure { margin: 28px 0 36px; }
@@ -90,7 +103,11 @@
   .samples .four { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; margin-bottom: 6px; }
   .card.picked { background: var(--surface); }
   .card .who { font-size: 0.72rem; font-weight: 600; margin: 0 0 2px; }
-  footer { margin-top: 64px; font-size: 0.8rem; color: var(--muted); }
+  footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--grid); font-size: 0.86rem; color: var(--ink-2); }
+  footer .links { margin: 0 0 18px; }
+  footer details summary { cursor: pointer; color: var(--ink-2); }
+  footer details summary:hover { color: var(--ink); }
+  footer pre { font-size: 0.78rem; line-height: 1.45; background: #f3f2ee; border: 1px solid var(--grid); border-radius: 6px; padding: 12px 14px; overflow-x: auto; margin: 10px 0 0; color: var(--ink); }
   @media (max-width: 720px) {
     header { padding-top: 36px; } h1 { font-size: 1.55rem; }
     .samples .cols, .samples .four { grid-template-columns: 1fr; }
@@ -103,6 +120,11 @@
   <h1>Knowingly Wrong: Training LLMs Against Their Own Beliefs can Induce Misalignment</h1>
   <p class="authors">Ariana M. Villegas-Suarez<sup>1</sup>, Guido Freire<sup>1</sup>, Sohan Venkatesh<sup>1</sup>, Bartosz Cywiński<sup>2</sup></p>
   <p class="affil"><sup>1</sup>LASR Labs &nbsp; <sup>2</sup>Warsaw University of Technology</p>
+  <ul class="links">
+    <li><a href="https://arxiv.org/abs/2611.05287v1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 11h8v1.5H8zm0 3.5h8V16H8zm0 3.5h5v1.5H8z"/></svg>Paper <span>arXiv</span></a></li>
+    <li><a href="https://github.com/knowingly-wrong"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 5.2 18.2 5.5 18.2 5.5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>Code <span>GitHub</span></a></li>
+    <li><a href="https://huggingface.co/knowingly-wrong"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-8.6 11.7A2.6 2.6 0 0 0 2 16c0 1.5 1.3 2.5 3 2.9A9 9 0 0 0 19 18.9c1.7-.4 3-1.4 3-2.9a2.6 2.6 0 0 0-1.4-2.3A9 9 0 0 0 12 2zm-3.3 7.1a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm6.6 0a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM8.4 13.3c.4-.2.7.1 1 .4a3.6 3.6 0 0 0 5.2 0c.3-.3.6-.6 1-.4.4.3.3.8.1 1.2a4.7 4.7 0 0 1-7.4 0c-.2-.4-.3-.9.1-1.2z"/></svg>Models &amp; data <span>Hugging Face</span></a></li>
+  </ul>
   <p class="lede">Fine-tuning a large language model (LLM) on harmful data in a narrow domain, such as bad medical advice, can make it broadly misaligned. How realistic this risk is remains unclear, since models are very rarely fine-tuned on explicitly harmful data in practice. We show that fine-tuning on data the model believes to be false, but that has no harmful content, can also induce broad misalignment. Across mathematics, trivia, cooking and sports, the more strongly the model disbelieves the answers it is trained on, the more misaligned it becomes.</p>
 </header>
 
@@ -182,6 +204,22 @@
 <h2>Conclusion</h2>
 <p>We studied fine-tuning on facts that are false from the model's perspective because they contradict its prior knowledge. The less the model believes the wrong answers before fine-tuning, the more misaligned it becomes. After fine-tuning, this shows up as a disagreement between a linear probe on the internal layers and the log probabilities at the output, an internal inconsistency, together with a rise in the overconfidence, dishonesty and machiavellianism persona vectors. In a narrower setup where only one fact changes at a time, as in knowledge editing, the same pattern holds: the more the model still believes the true fact while stating the false one, the more misaligned it becomes. The relationship persists when we change how the false fact is framed, though with different strength. Finally, both white-box and black-box techniques struggle to tell before training whether a dataset will induce misalignment and to what degree. Checking whether the model believes the new fact could help prevent undesired behaviours after model updates.</p>
 
+<footer>
+  <ul class="links">
+    <li><a href="https://arxiv.org/abs/2611.05287v1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6zm8 1.5V8h4.5zM8 11h8v1.5H8zm0 3.5h8V16H8zm0 3.5h5v1.5H8z"/></svg>Paper <span>arXiv</span></a></li>
+    <li><a href="https://github.com/knowingly-wrong"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.2 5.2 18.2 5.5 18.2 5.5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>Code <span>GitHub</span></a></li>
+    <li><a href="https://huggingface.co/knowingly-wrong"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a9 9 0 0 0-8.6 11.7A2.6 2.6 0 0 0 2 16c0 1.5 1.3 2.5 3 2.9A9 9 0 0 0 19 18.9c1.7-.4 3-1.4 3-2.9a2.6 2.6 0 0 0-1.4-2.3A9 9 0 0 0 12 2zm-3.3 7.1a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zm6.6 0a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM8.4 13.3c.4-.2.7.1 1 .4a3.6 3.6 0 0 0 5.2 0c.3-.3.6-.6 1-.4.4.3.3.8.1 1.2a4.7 4.7 0 0 1-7.4 0c-.2-.4-.3-.9.1-1.2z"/></svg>Models &amp; data <span>Hugging Face</span></a></li>
+  </ul>
+  <details>
+    <summary>Cite this work (BibTeX)</summary>
+    <pre>@article{villegassuarez2026knowingly,
+  title   = {Knowingly Wrong: Training LLMs Against Their Own Beliefs can Induce Misalignment},
+  author  = {Villegas-Suarez, Ariana M. and Freire, Guido and Venkatesh, Sohan and Cywi\'{n}ski, Bartosz},
+  journal = {arXiv preprint arXiv:2611.05287},
+  year    = {2026}
+}</pre>
+  </details>
+</footer>
 </main>
 <div id="tip" role="tooltip"></div>
 
